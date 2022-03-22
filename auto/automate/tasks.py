@@ -1,20 +1,30 @@
-from app import app
 import os
-from datetime import datetime
 import subprocess
+from datetime import datetime
 from time import sleep
-import isort
+
+import snoop
+from loguru import logger
+
+# from app import app
+
+fmt = "{time} - {name} - {level} - {message}"
+logger.add("../logs/info.log", level="INFO", format=fmt, backtrace=True, diagnose=True)  # noqa: E501
+logger.add("../logs/error.log", level="ERROR", format=fmt, backtrace=True, diagnose=True)  # noqa: E501
 
 
-@app.task
+@logger.catch
+@snoop
 def update():
+
     """
     If there's a git repository in the folder,
     the function will run git add, commit and
-    push in the directory.
+    pushgit how to create branch when information different in the directory.
     If there's not, it will create it.
     """
 
+    print("pre_full")
     fullpaths = []
 
     py = os.listdir("/home/mic/python/")
@@ -58,3 +68,7 @@ def update():
                 subprocess.run(push_github, cwd=path, shell=True)
             else:
                 print(f"There's no repo github in {path}")
+
+
+if __name__ == "__main___":
+    update()
