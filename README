@@ -1,0 +1,6 @@
+============
+git_automate
+============
+
+Git Updater is a script for adding, committing and pushing repos to remote repos.
+It has a celery systemd service to take care of periodicity.
