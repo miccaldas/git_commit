@@ -1,7 +1,5 @@
 """
-For some reason which I'll ascertain later,
-this code code wasn't running inside a function.
-THis will do for now.
+Updates git repos in the python and web folders.
 """
 import os
 import subprocess
@@ -13,6 +11,11 @@ import snoop
 
 @snoop
 def update():
+    """
+    Adds, commits and pushes changes to
+    git repos. Prints a message if source
+    is not present.
+    """
     fullpaths = []
     py = os.listdir("/home/mic/python/")
     site = os.listdir("/usr/share/nginx/html/")
