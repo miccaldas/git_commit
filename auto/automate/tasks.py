@@ -1,36 +1,23 @@
+"""
+For some reason which I'll ascertain later,
+this code code wasn't running inside a function.
+THis will do for now.
+"""
 import os
 import subprocess
 from datetime import datetime
 from time import sleep
 
 import snoop
-from loguru import logger
-
-# from app import app
-
-fmt = "{time} - {name} - {level} - {message}"
-logger.add("../logs/info.log", level="INFO", format=fmt, backtrace=True, diagnose=True)  # noqa: E501
-logger.add("../logs/error.log", level="ERROR", format=fmt, backtrace=True, diagnose=True)  # noqa: E501
 
 
-@logger.catch
 @snoop
 def update():
-
-    """
-    If there's a git repository in the folder,
-    the function will run git add, commit and
-    pushgit how to create branch when information different in the directory.
-    If there's not, it will create it.
-    """
-
-    print("pre_full")
     fullpaths = []
-
     py = os.listdir("/home/mic/python/")
     site = os.listdir("/usr/share/nginx/html/")
     clean_site = [i for i in site if i != "setup.cfg"]
-    print(py)
+    print(f"second py is {py}")
     print(clean_site)
 
     for i in py:
@@ -70,5 +57,5 @@ def update():
                 print(f"There's no repo github in {path}")
 
 
-if __name__ == "__main___":
+if __name__ == "__main__":
     update()
