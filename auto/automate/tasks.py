@@ -20,8 +20,6 @@ def update():
     py = os.listdir("/home/mic/python/")
     site = os.listdir("/usr/share/nginx/html/")
     clean_site = [i for i in site if i != "setup.cfg"]
-    print(f"second py is {py}")
-    print(clean_site)
 
     for i in py:
         fpath = os.path.join("/home/mic/python", i)
