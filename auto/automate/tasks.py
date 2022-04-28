@@ -9,7 +9,7 @@ from time import sleep
 import snoop
 
 
-@snoop
+# @snoop
 def update():
     """
     Adds, commits and pushes changes to
