@@ -6,6 +6,7 @@ import subprocess
 from datetime import datetime
 from time import sleep
 
+import requests
 import snoop
 
 
@@ -60,3 +61,15 @@ def update():
 
 if __name__ == "__main__":
     update()
+
+
+def notify():
+    """
+    Sends notifcation to phone that the
+    script has been run.
+    """
+    requests.post('https://ntfy.sh/mic', data='Git update has been run. '.encode(encoding='utf-8'))
+
+
+if __name__ == '__main__':
+    notify()
