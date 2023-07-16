@@ -1,0 +1,11 @@
+[Unit]
+Description=Updates Github repositories on python and nginx directories.
+Requires=git_automate.service
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+
