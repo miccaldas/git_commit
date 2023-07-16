@@ -42,6 +42,7 @@ def update():
     add = "git add ."
     push_github = "git push -f origin_github HEAD"
     for path in fullpaths:
+        print(path)
         os.chdir(path)
         date = datetime.now().strftime("%d-%m-%Y")
         commit = f"git commit -m '{date} commit'"
